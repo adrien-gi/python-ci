@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice CI/CD</title>
+</head>
+<body>
+    <h1>Ma Calculatrice</h1>
+    
+    <input type="number" id="num1" value="0">
+    <select id="op">
+        <option value="add">+</option>
+        <option value="sub">-</option>
+        <option value="mul">*</option>
+        <option value="div">/</option>
+    </select>
+    <input type="number" id="num2" value="0">
+    
+    <button id="calc-btn" onclick="compute()">Calculer</button>
+    
+    <h2>Résultat : <span id="result">0</span></h2>
+
+    <script>
+        async function compute() {
+            const a = document.getElementById('num1').value;
+            const b = document.getElementById('num2').value;
+            const op = document.getElementById('op').value;
+            
+            const response = await fetch('/api/calc', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({a: a, b: b, op: op})
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = data.result;
+        }
+    </script>
+</body>
+</html>
