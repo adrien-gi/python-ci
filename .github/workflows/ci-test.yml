@@ -11,7 +11,7 @@ jobs:
         uses: actions/setup-python@v7
         with:
           python-version: '3.14.7'
-      - run: pip install -r requirements.txt #pour l'instant pas de requirements, mais au cas où
+    # - run: pip install -r requirements.txt #pour l'instant pas de requirements, mais au cas où
       - run: pip install pylint #Installation de pylint qui va regarder si la structure du code est OK 
       - run: pylint calculatrice.py #test de pyltinth sur l'app calculatrice
       
