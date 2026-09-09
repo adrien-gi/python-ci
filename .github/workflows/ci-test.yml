@@ -1,0 +1,9 @@
+name: pipeline-de-test-pour-python
+
+on: [push]
+
+jobs:
+  un-max-de-test-sur-mon-python:
+    runs-on : ubuntu-latest
+    steps:
+      - uses
