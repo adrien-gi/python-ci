@@ -6,4 +6,9 @@ jobs:
   un-max-de-test-sur-mon-python:
     runs-on : ubuntu-latest
     steps:
-      - uses
+      - uses: actions/checkout@v7 #Permet de cloner le rep sur la machine ubuntu
+      - name: installation python #Installation de python sur la machine
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.7'
+      
