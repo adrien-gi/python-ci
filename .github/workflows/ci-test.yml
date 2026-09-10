@@ -1,4 +1,4 @@
-name: pipeline-de-test-pour-python
+name: pipeline-de-test-pour-python-avec-container
 
 on: [push]
 
