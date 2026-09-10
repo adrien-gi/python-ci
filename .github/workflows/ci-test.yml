@@ -1,19 +1,16 @@
-name: pipeline-de-test-pour-python
-
-on: [push]
-
 jobs:
   un-max-de-test-sur-mon-python:
-    runs-on : ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7 #Permet de cloner le rep sur la machine ubuntu
-      - name: installation python #Installation de python sur la machine
+      - uses: actions/checkout@v7  # Permet de cloner le repo sur la machine ubuntu
+      - name: installation python  # Installation de python sur la machine
         uses: actions/setup-python@v7
         with:
           python-version: '3.14.7'
-    # - run: pip install -r requirements.txt #pour l'instant pas de requirements, mais au cas où
-      - name: pylionth - Test de structure du code
-        run: pip install pylint && pylint calculatrice.py #Analyse de la structure
-      - name: pytest - Vérification de calcul #test si 1+1=2 par exemple, vérifie des calculs.
+      # - run: pip install -r requirements.txt  # pour l'instant pas de requirements, mais au cas où
+      - name: pylint - Test de structure du code
+        run: pip install pylint && pylint calculatrice.py  # Analyse de la structure
+      - name: pytest - Vérification de calcul  # test si 1+1=2 par exemple, vérifie des calculs
         run: pip install pytest && python3 -m pytest test_calculatrice.py -v
-            
+      - name: pytest-cov - Vérifie la couverture du code testé par la pipeline
+        run: pip install pytest-cov && pytest --cov=calculatrice test_calculatrice.py
