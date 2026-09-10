@@ -12,8 +12,8 @@ jobs:
         with:
           python-version: '3.14.7'
     # - run: pip install -r requirements.txt #pour l'instant pas de requirements, mais au cas où
-      - name: test de structure
+      - name: pylionth - Test de structure du code
         run: pip install pylint && pylint calculatrice.py #Analyse de la structure
-      - name: pytest
+      - name: pytest - Vérification de calcul #test si 1+1=2 par exemple, vérifie des calculs.
         run: pip install pytest && python3 -m pytest test_calculatrice.py -v
             
