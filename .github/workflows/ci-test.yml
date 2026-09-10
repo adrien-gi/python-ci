@@ -14,7 +14,11 @@ jobs:
     # - run: pip install -r requirements.txt #pour l'instant pas de requirements, mais au cas où
       - name: pylionth - Test de structure du code
         run: pip install pylint && pylint calculatrice.py #Analyse de la structure
+      - name: flake8 - Test de structure du code n°2
+        run: pip install flake8 && flake8 calculatrice.py
       - name: pytest - Vérification de calcul #test si 1+1=2 par exemple, vérifie des calculs.
         run: pip install pytest && python3 -m pytest test_calculatrice.py -v
-      - name: pytest-cov - Vérifie la couverture du code testé par la pipeline
-        run: pip install pytest-cov && pytest --cov=calculatrice test_calculatrice.py            
+      - name: pytest-cov - Vérifie la couverture du code testé par la pipeline #Refais pytest mais en donnant la couverture de code testé par le fichier de test
+        run: pip install pytest-cov && pytest --cov=calculatrice test_calculatrice.py 
+      - name: Bandit - Détecte des pratiques à risque en cybersécurité dans python           
+        run: pip install bandit && bandit calculatrice.py
