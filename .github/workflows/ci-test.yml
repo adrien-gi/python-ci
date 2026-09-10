@@ -15,5 +15,5 @@ jobs:
       - name: test de structure
         run: pip install pylint && pylint calculatrice.py #Analyse de la structure
       - name: pytest
-        run: pip install pytes
+        run: pip install pytest
 
