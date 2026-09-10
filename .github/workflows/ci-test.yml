@@ -22,5 +22,5 @@ jobs:
         run: pip install pytest-cov && pytest --cov=calculatrice test_calculatrice.py 
       - name: Bandit - Scan de vulnérabilité #Détecte des pratiques à risque en cybersécurité dans python           
         run: pip install bandit && bandit calculatrice.py
-      - name: name: Mypy -Vérifie les types en entrée #Par exemple vérifie que dans la fonctioj addition on attend bien des chiffres mais pas des lettres
+      - name: Mypy -Vérifie les types en entrée #Par exemple vérifie que dans la fonctioj addition on attend bien des chiffres mais pas des lettres
         run: pip install mypy && mypy calculatrice.py
