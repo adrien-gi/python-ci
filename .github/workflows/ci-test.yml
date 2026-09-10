@@ -20,5 +20,7 @@ jobs:
         run: pip install pytest && python3 -m pytest test_calculatrice.py -v
       - name: pytest-cov - Vérifie la couverture du code testé par la pipeline #Refais pytest mais en donnant la couverture de code testé par le fichier de test
         run: pip install pytest-cov && pytest --cov=calculatrice test_calculatrice.py 
-      - name: Bandit - Détecte des pratiques à risque en cybersécurité dans python           
+      - name: Bandit - Scan de vulnérabilité #Détecte des pratiques à risque en cybersécurité dans python           
         run: pip install bandit && bandit calculatrice.py
+      - name: name: Mypy -Vérifie les types en entrée #Par exemple vérifie que dans la fonctioj addition on attend bien des chiffres mais pas des lettres
+        run: pip install mypy && mypy calculatrice.py
